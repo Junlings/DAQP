@@ -2,66 +2,6 @@ from xml.dom.minidom import Document, getDOMImplementation
 import copy
 
 
-class LabViewXml():
-    #doc     = Document()
-
-    def __init__(self, instance,clustername):
-        rootName    = 'Cluster'
-        self.clustername = clustername
-        self.ins = instance
-
-        impl = getDOMImplementation()
-        self.doc = impl.createDocument(None, "root", None)
-
-        #self.doc = Document()
-        self.root   = self.doc.createElement(rootName)
-
-        self.doc.appendChild(self.root)
-        self.buildDict(self.root)
-
-    def build(self, father, structure):
-        if type(structure) == dict:
-            for k in structure:
-                tag = self.doc.createElement(k)
-                father.appendChild(tag)
-                self.build(tag, structure[k])
-
-        elif type(structure) == list:
-            grandFather = father.parentNode
-            tagName     = father.tagName
-            grandFather.removeChild(father)
-            for l in structure:
-                tag = self.doc.createElement(tagName)
-                self.build(tag, l)
-                grandFather.appendChild(tag)
-
-        else:
-            data    = str(structure)
-            tag     = self.doc.createTextNode(data)
-            father.appendChild(tag)
-            
-    def buildDict(self,father):
-        
-        nelem = 0
-        #for key,value in self.ins.__dict__.items():
-        for key in self.ins.xmllist:
-            if key in self.ins.__dict__.keys():
-                if not hasattr(self.ins.__dict__[key], '__call__'):
-                    nelem += 1
-                    value = self.ins.__dict__[key]
-                    temp = {'Name':key,'Val':value}
-                    if type(value) == type(2.03) or type(value) == type(2): 
-                        propdict = {'DBL':temp}
-                    
-                    elif type(value) == type(True):
-                        propdict = {'Boolean':{'Name':key,'Val':int(value)}}
-                        
-                    else:
-                        propdict = {'String':temp}
-    
-            self.build(father,propdict)        
-        
-        self.build(self.root,{'Name':self.clustername,'NumElts':nelem})
 
 
 

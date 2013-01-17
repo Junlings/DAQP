@@ -15,12 +15,12 @@ class dict2xml(object):
     doc     = Document()
 
     def __init__(self, structure):
-        if len(structure) == 1:
-            rootName    = 'SC0'
-            self.root   = self.doc.createElement(rootName)
 
-            self.doc.appendChild(self.root)
-            self.build(self.root, structure)
+        rootName    = 'SC0'
+        self.root   = self.doc.createElement(rootName)
+
+        self.doc.appendChild(self.root)
+        self.build(self.root, structure)
 
     '''
     def build(self, father, structure):
@@ -53,15 +53,18 @@ class dict2xml(object):
             grandFather = father.parentNode
             tagName     = father.tagName
             grandFather.removeChild(father)
-            for l in structure:
-                tag = self.doc.createElement(tagName)
+            tag = self.doc.createElement(tagName)
+            
+            for l in structure:    
                 self.build(tag, l)
                 grandFather.appendChild(tag)
+                
 
         else:
             if isinstance(structure,AIgroup):
                 if 'xmllist' in structure.__dict__:
                     nelem = 0
+                    propdict = []
                     for key in structure.xmllist:
                         if key in structure.__dict__.keys():
                             if not hasattr(structure.__dict__[key], '__call__'):
@@ -69,25 +72,31 @@ class dict2xml(object):
                                 value = structure.__dict__[key]
                                 temp = {'Name':key,'Val':value}
                                 if type(value) == type(2.03) or type(value) == type(2): 
-                                    propdict = {'DBL':temp}
+                                    propdict.append({'DBL':temp})
                                 
                                 elif type(value) == type(True):
-                                    propdict = {'Boolean':{'Name':key,'Val':int(value)}}
-                                    
+                                    propdict.append( {'Boolean':{'Name':key,'Val':int(value)}})
+                                
                                 else:
-                                    propdict = {'String':temp}                
-                        self.build(father,propdict)
+                                    propdict.append( {'String':temp})
+                                
+                    propdict.insert(0,{'Name':''})
+                    propdict.insert(1,{'NumElts':nelem})  
+                    self.build(father,propdict)
                     
             else:
+
                 data    = str(structure)
                 tag     = self.doc.createTextNode(data)
                 father.appendChild(tag)
+
 
     def display(self):
         print self.doc.toprettyxml(indent="  ")
     
     def GetXml(self):
-        return self.doc.toprettyxml(indent="  ")
+        aa = self.doc.toprettyxml(indent="  ")
+        return aa
         
 class SelRadioButton(wx.RadioButton):
     def __init__(self,parent,skey=None):
@@ -207,9 +216,11 @@ class ScxiFrame(wx.Frame):
             temp_mod = {}
             for channelkey,channel in mod.items():
                 if channel['InUseChk']:
-                    temp_mod[channelkey] = {'name':channel['Nameinput'],
-                                            'type':channel['Transducerins']['item'].__class__.__name__,
-                                            'Cluster':channel['Transducerins']['item']} #.GetPropDict(channel['PhysicalChannelName'])
+                    temp_mod[channelkey] = [{'String':{'Name':'Channel Name','Val':channel['Nameinput']}},
+                                            {'String':{'Name':'Channel type','Val':channel['Transducerins']['item'].__class__.__name__}},
+                                            {'String':{'Name':'Channel Physical Channel','Val':channel['PhysicalChannelName']}},
+                                            {'String':{'Name':'Channel Transducer','Val':channel['Transducer']}},
+                                            {'Cluster':channel['Transducerins']['item']}] #.GetPropDict(channel['PhysicalChannelName']}]
                 #else:
                 #    temp_mod[channelkey] = ''
             

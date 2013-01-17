@@ -2,7 +2,75 @@
 <SC0>
   <mod0>
     <ai1>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>234</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputExtExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC0/mod0/ai1</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>MTS_LOAD_0_100_kip</Val>
+      </String>
       <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
+        <DBL>
+          <Name>max</Name>
+          <Val>10</Val>
+        </DBL>
+        <DBL>
+          <Name>min</Name>
+          <Val>-10</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_a</Name>
+          <Val>22.4</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_b</Name>
+          <Val>0.0</Val>
+        </DBL>
+        <Boolean>
+          <Name>lowpass</Name>
+          <Val>1</Val>
+        </Boolean>
+        <DBL>
+          <Name>lowpassfreq</Name>
+          <Val>60</Val>
+        </DBL>
+        <DBL>
+          <Name>excitation</Name>
+          <Val>0.4</Val>
+        </DBL>
+      </Cluster>
+    </ai1>
+    <ai0>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>234</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputIntExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC0/mod0/ai0</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>LVDT_5</Val>
+      </String>
+      <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
         <DBL>
           <Name>max</Name>
           <Val>10</Val>
@@ -32,22 +100,40 @@
           <Val>10</Val>
         </DBL>
       </Cluster>
-      <type>VoltageInputIntExc</type>
-      <name>234234</name>
-    </ai1>
+    </ai0>
+  </mod0>
+  <mod1>
     <ai0>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>234</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputExtExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC0/mod1/ai0</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>UTM_LOAD_0_100_kip</Val>
+      </String>
       <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
         <DBL>
           <Name>max</Name>
-          <Val>0.01</Val>
+          <Val>10</Val>
         </DBL>
         <DBL>
           <Name>min</Name>
-          <Val>-0.01</Val>
+          <Val>-10</Val>
         </DBL>
         <DBL>
           <Name>factor_a</Name>
-          <Val>1.0</Val>
+          <Val>22.4</Val>
         </DBL>
         <DBL>
           <Name>factor_b</Name>
@@ -63,23 +149,9 @@
         </DBL>
         <DBL>
           <Name>excitation</Name>
-          <Val>3.125</Val>
+          <Val>0.4</Val>
         </DBL>
-        <DBL>
-          <Name>resistance</Name>
-          <Val>120</Val>
-        </DBL>
-        <DBL>
-          <Name>GageFactor</Name>
-          <Val>2.0</Val>
-        </DBL>
-        <String>
-          <Name>BridgeType</Name>
-          <Val>Quarter Bridge Type II</Val>
-        </String>
       </Cluster>
-      <type>StrainInput</type>
-      <name>234</name>
     </ai0>
-  </mod0>
+  </mod1>
 </SC0>
