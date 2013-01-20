@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
-<SC0>
-  <mod0>
-    <ai1>
+<SC1>
+  <mod1>
+    <ai5>
       <String>
         <Name>Channel Name</Name>
-        <Val>234</Val>
+        <Val>6</Val>
       </String>
       <String>
         <Name>Channel type</Name>
@@ -12,11 +12,211 @@
       </String>
       <String>
         <Name>Channel Physical Channel</Name>
-        <Val>SC0/mod0/ai1</Val>
+        <Val>SC1mod1/ai5</Val>
       </String>
       <String>
         <Name>Channel Transducer</Name>
-        <Val>MTS_LOAD_0_100_kip</Val>
+        <Val>UTM_LOAD_0_100_kip</Val>
+      </String>
+      <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
+        <DBL>
+          <Name>max</Name>
+          <Val>10</Val>
+        </DBL>
+        <DBL>
+          <Name>min</Name>
+          <Val>-10</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_a</Name>
+          <Val>22.4</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_b</Name>
+          <Val>0.0</Val>
+        </DBL>
+        <Boolean>
+          <Name>lowpass</Name>
+          <Val>1</Val>
+        </Boolean>
+        <DBL>
+          <Name>lowpassfreq</Name>
+          <Val>60</Val>
+        </DBL>
+        <DBL>
+          <Name>excitation</Name>
+          <Val>0.4</Val>
+        </DBL>
+      </Cluster>
+    </ai5>
+    <ai4>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>5</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputExtExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC1mod1/ai4</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>UTM_LOAD_0_10_kip</Val>
+      </String>
+      <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
+        <DBL>
+          <Name>max</Name>
+          <Val>10</Val>
+        </DBL>
+        <DBL>
+          <Name>min</Name>
+          <Val>-10</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_a</Name>
+          <Val>22.4</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_b</Name>
+          <Val>0.0</Val>
+        </DBL>
+        <Boolean>
+          <Name>lowpass</Name>
+          <Val>1</Val>
+        </Boolean>
+        <DBL>
+          <Name>lowpassfreq</Name>
+          <Val>60</Val>
+        </DBL>
+        <DBL>
+          <Name>excitation</Name>
+          <Val>0.4</Val>
+        </DBL>
+      </Cluster>
+    </ai4>
+    <ai7>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>8</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputIntExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC1mod1/ai7</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>LVDT_5</Val>
+      </String>
+      <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
+        <DBL>
+          <Name>max</Name>
+          <Val>10</Val>
+        </DBL>
+        <DBL>
+          <Name>min</Name>
+          <Val>-10</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_a</Name>
+          <Val>22.4</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_b</Name>
+          <Val>0.0</Val>
+        </DBL>
+        <Boolean>
+          <Name>lowpass</Name>
+          <Val>1</Val>
+        </Boolean>
+        <DBL>
+          <Name>lowpassfreq</Name>
+          <Val>60</Val>
+        </DBL>
+        <DBL>
+          <Name>excitation</Name>
+          <Val>10</Val>
+        </DBL>
+      </Cluster>
+    </ai7>
+    <ai6>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>7</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputExtExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC1mod1/ai6</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>MTS_DISP_0_10_in</Val>
+      </String>
+      <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
+        <DBL>
+          <Name>max</Name>
+          <Val>10</Val>
+        </DBL>
+        <DBL>
+          <Name>min</Name>
+          <Val>-10</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_a</Name>
+          <Val>22.4</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_b</Name>
+          <Val>0.0</Val>
+        </DBL>
+        <Boolean>
+          <Name>lowpass</Name>
+          <Val>1</Val>
+        </Boolean>
+        <DBL>
+          <Name>lowpassfreq</Name>
+          <Val>60</Val>
+        </DBL>
+        <DBL>
+          <Name>excitation</Name>
+          <Val>0.4</Val>
+        </DBL>
+      </Cluster>
+    </ai6>
+    <ai1>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>2</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputExtExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC1mod1/ai1</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>UTM_LOAD_0_20_kip</Val>
       </String>
       <Cluster>
         <Name></Name>
@@ -54,7 +254,7 @@
     <ai0>
       <String>
         <Name>Channel Name</Name>
-        <Val>234</Val>
+        <Val>1</Val>
       </String>
       <String>
         <Name>Channel type</Name>
@@ -62,7 +262,7 @@
       </String>
       <String>
         <Name>Channel Physical Channel</Name>
-        <Val>SC0/mod0/ai0</Val>
+        <Val>SC1mod1/ai0</Val>
       </String>
       <String>
         <Name>Channel Transducer</Name>
@@ -101,12 +301,10 @@
         </DBL>
       </Cluster>
     </ai0>
-  </mod0>
-  <mod1>
-    <ai0>
+    <ai3>
       <String>
         <Name>Channel Name</Name>
-        <Val>234</Val>
+        <Val>4</Val>
       </String>
       <String>
         <Name>Channel type</Name>
@@ -114,7 +312,57 @@
       </String>
       <String>
         <Name>Channel Physical Channel</Name>
-        <Val>SC0/mod1/ai0</Val>
+        <Val>SC1mod1/ai3</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>UTM_DISP_0_5_in</Val>
+      </String>
+      <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
+        <DBL>
+          <Name>max</Name>
+          <Val>10</Val>
+        </DBL>
+        <DBL>
+          <Name>min</Name>
+          <Val>-10</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_a</Name>
+          <Val>22.4</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_b</Name>
+          <Val>0.0</Val>
+        </DBL>
+        <Boolean>
+          <Name>lowpass</Name>
+          <Val>1</Val>
+        </Boolean>
+        <DBL>
+          <Name>lowpassfreq</Name>
+          <Val>60</Val>
+        </DBL>
+        <DBL>
+          <Name>excitation</Name>
+          <Val>0.4</Val>
+        </DBL>
+      </Cluster>
+    </ai3>
+    <ai2>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>3</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputExtExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC1mod1/ai2</Val>
       </String>
       <String>
         <Name>Channel Transducer</Name>
@@ -152,6 +400,58 @@
           <Val>0.4</Val>
         </DBL>
       </Cluster>
-    </ai0>
+    </ai2>
   </mod1>
-</SC0>
+  <mod2>
+    <ai0>
+      <String>
+        <Name>Channel Name</Name>
+        <Val>yuyu</Val>
+      </String>
+      <String>
+        <Name>Channel type</Name>
+        <Val>VoltageInputIntExc</Val>
+      </String>
+      <String>
+        <Name>Channel Physical Channel</Name>
+        <Val>SC1mod2/ai0</Val>
+      </String>
+      <String>
+        <Name>Channel Transducer</Name>
+        <Val>LVDT_5</Val>
+      </String>
+      <Cluster>
+        <Name></Name>
+        <NumElts>7</NumElts>
+        <DBL>
+          <Name>max</Name>
+          <Val>10</Val>
+        </DBL>
+        <DBL>
+          <Name>min</Name>
+          <Val>-10</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_a</Name>
+          <Val>22.4</Val>
+        </DBL>
+        <DBL>
+          <Name>factor_b</Name>
+          <Val>0.0</Val>
+        </DBL>
+        <Boolean>
+          <Name>lowpass</Name>
+          <Val>1</Val>
+        </Boolean>
+        <DBL>
+          <Name>lowpassfreq</Name>
+          <Val>60</Val>
+        </DBL>
+        <DBL>
+          <Name>excitation</Name>
+          <Val>10</Val>
+        </DBL>
+      </Cluster>
+    </ai0>
+  </mod2>
+</SC1>

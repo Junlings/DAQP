@@ -16,7 +16,7 @@ class dict2xml(object):
 
     def __init__(self, structure):
 
-        rootName    = 'SC0'
+        rootName    = 'SC1'
         self.root   = self.doc.createElement(rootName)
 
         self.doc.appendChild(self.root)
@@ -132,7 +132,7 @@ class SelButton(wx.Button):
 
 class ScxiFrame(wx.Frame):
     def __init__(self,parent,title='Setup'):
-        size = (600,560)
+        size = (600,620)
         self.settings = {}        
         self.items = {}
         super(ScxiFrame, self).__init__(parent,size=size,title=title,style=wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN)
@@ -145,24 +145,26 @@ class ScxiFrame(wx.Frame):
         self.ModelNoteBook = wx.aui.AuiNotebook(self.ModelNoteBookPanel,1,size=(500,500),style=bookStyle)
         box = wx.BoxSizer(wx.VERTICAL)
         box.Add(self.ModelNoteBook, 1, wx.EXPAND,border=5)
+        
+        
         hbox = wx.GridSizer(rows=1,cols=3,vgap=5,hgap=5)
         
         self.Btn_resetpage = SelButton(self.ModelNoteBookPanel,'ResetCurrentPage')
         self.Btn_resetall =  SelButton(self.ModelNoteBookPanel,'ResetALLPages')
         self.Btn_apply = SelButton(self.ModelNoteBookPanel,'OK')
         
-        hbox.Add(self.Btn_resetpage, 0, wx.EXPAND,border=5)
-        hbox.Add(self.Btn_resetall, 0, wx.EXPAND,border=5)
-        hbox.Add(self.Btn_apply, 0, wx.EXPAND,border=5)
-        box.Add(hbox, 1, wx.ALL|wx.ALIGN_RIGHT,border=5)
-        self.ModelNoteBookPanel.SetSizer(box)
-        self.ModelNoteBookPanel.Layout()
-        
+        hbox.Add(self.Btn_resetpage, 0, wx.ALIGN_CENTER,border=5)
+        hbox.Add(self.Btn_resetall, 0, wx.ALIGN_CENTER,border=5)
+        hbox.Add(self.Btn_apply, 0, wx.ALIGN_CENTER,border=5)
+        box.Add(hbox, 0, wx.ALIGN_RIGHT|wx.ALL,border=15)
+
+
         # create mod pages
-        for i in range(0,4):
+        for i in range(1,5):
             self.AddModPage(i)
 
-        
+        self.ModelNoteBookPanel.SetSizer(box)
+        self.ModelNoteBookPanel.Layout()        
         self.create_bind()
         self.Show()
     
@@ -271,7 +273,7 @@ class ChannelSettings():
         
         self.itemkeylist = ['PhysicalChannelName','Name','Transducer1','Transducer2','InUseChk','Nameinput','Transducerselect','Transducersetting']
         
-        sizer = wx.FlexGridSizer(rows=3, cols=4, hgap=15, vgap=15)
+        sizer = wx.FlexGridSizer(rows=2, cols=4, hgap=15, vgap=15)
         # add component to size
         self.AddToSize(sizer,self.items,self.itemkeylist)
         
@@ -367,7 +369,7 @@ class ModulePanel(wx.Panel):
         for i in range(0,8):
             channelname = 'ai'+str(i)
             self.channelname.append(channelname)
-            self.items[channelname] = ChannelSettings(self,box,'SC0/'+self.modname+'/'+channelname)
+            self.items[channelname] = ChannelSettings(self,box,'SC1'+self.modname+'/'+channelname)
             
         self.SetSizer(box)
         self.Layout()
