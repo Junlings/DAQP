@@ -150,7 +150,7 @@ STRAIN_120_quarter2 = {
     'description':' strain gauge signal',
     'prop':
         {
-            'BridgeType':'Quarter Bridge Type II',
+            'BridgeType':'Quarter Bridge II',
             'gageFactor': 2.0,
             'excitation': 3.125,
             'lowpass':True,
@@ -171,7 +171,7 @@ STRAIN_350_half = {
     'description':' strain gauge signal',
     'prop':
         {
-            'BridgeType':'Half Bridge',
+            'BridgeType':'Half Bridge I',
             'gageFactor': 2.0,
             'excitation': 3.125,
             'lowpass':True,
