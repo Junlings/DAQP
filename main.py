@@ -222,6 +222,7 @@ class ScxiFrame(wx.Frame):
                                             {'String':{'Name':'Channel type','Val':channel['Transducerins']['item'].__class__.__name__}},
                                             {'String':{'Name':'Channel Physical Channel','Val':channel['PhysicalChannelName']}},
                                             {'String':{'Name':'Channel Transducer','Val':channel['Transducer']}},
+                                            {'String':{'Name':'Channel Unit','Val':channel['Transducerins']['unit']}},
                                             {'Cluster':channel['Transducerins']['item']}] #.GetPropDict(channel['PhysicalChannelName']}]
                 #else:
                 #    temp_mod[channelkey] = ''
