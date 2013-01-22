@@ -10,6 +10,7 @@ from xml.dom.minidom import Document
 import copy
 from transducer import AIgroup
 import inspect
+import cPickle as pickle
 
 class dict2xml(object):
     doc     = Document()
@@ -132,10 +133,20 @@ class SelButton(wx.Button):
 
 class ScxiFrame(wx.Frame):
     def __init__(self,parent,title='Setup'):
-        size = (600,620)
+        size = (600,650)
         self.settings = {}        
         self.items = {}
         super(ScxiFrame, self).__init__(parent,size=size,title=title,style=wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN)
+        
+        
+        menudata =  [("&File",
+                                ("&About", "Information about this program", 'OnAbout'),
+                                ("&Save", "Save database", 'OnSaveFile'),
+                                ("&Load", "Load database", 'OnLoadFile'),),
+                        ]
+        self.createMenuBar(menudata)
+        
+        
         
         self.ModelNoteBookPanel = wx.Panel(self)
         
@@ -179,13 +190,32 @@ class ScxiFrame(wx.Frame):
     
     def OnApply(self,event):
         self.GetValue()
-        self.export_xml()
+        
+        ''' save model module '''
+        wildcard = "Export Setting File(*.xml)|*.xml|" \
+         "All files (*.*)|*.*"
+        
+        dlg = wx.FileDialog(
+            self, message="Choose a file",
+            defaultFile="",
+            wildcard=wildcard,
+            style=wx.FD_SAVE | wx.CHANGE_DIR
+            )
+        
+        if dlg.ShowModal() == wx.ID_OK:
+            paths = dlg.GetPaths()
+            self.export_xml(filepath=paths[0])
     
     def GetValue(self):
         for key,item in self.items.items():
             self.settings[key] = item.GetValue()
         #print self.settings
-        
+    
+    def SetValue(self):
+        for key,item in self.items.items():
+            item.SetValue(self.settings[key])
+        #print self.settings
+    
     def OnResetPage(self,event):
         pagename = self.ModelNoteBook.GetPageText(self.ModelNoteBook.GetSelection())
         self.Reset(pagename)
@@ -233,14 +263,88 @@ class ScxiFrame(wx.Frame):
         return settings_exp
                     
 
-    def export_xml(self):
+    def export_xml(self,filepath=None):
         xml1 = dict2xml(self.cleanup_settings())
-        
-        f1 = open('xml_temp.xml','w')
+        if filepath != None:
+            f1 = open(filepath,'w')
+        else:
+            f1 = open('xml_temp.xml','w')
         f1.write(xml1.GetXml())
         f1.close()
-        #print self.settings
         
+        # save project file
+        f2 = open(filepath+'.pydat','w')
+        pickle.dump(self.settings,f2)
+        f2.close()
+        
+        #print self.settings
+
+
+    def createMenuBar(self,menuData=None):
+        if menuData != None:
+            menuBar = wx.MenuBar()
+            for eachMenuData in menuData:
+                menuLabel = eachMenuData[0]
+                menuItems = eachMenuData[1:]
+                menuBar.Append(self.createMenu(menuItems), menuLabel)
+            self.SetMenuBar(menuBar)
+            
+    def createMenu(self, menuData):
+        
+        menu = wx.Menu()
+        for eachLabel, eachStatus, eachHandler in menuData:
+            if not eachLabel:
+                menu.AppendSeparator()
+                continue
+            menuItem = menu.Append(-1, eachLabel, eachStatus)
+            
+            eachHandler=getattr(self,eachHandler)  ## here convert the string function name to the function attr
+            self.Bind(wx.EVT_MENU, eachHandler, menuItem)
+        return menu
+    
+    
+    def OnAbout(self,event):pass
+    def OnSaveFile(self,event):
+        self.GetValue()
+        
+        ''' save model module '''
+        wildcard = "Export Setting File(*.xml)|*.xml|" \
+         "All files (*.*)|*.*"
+        
+        dlg = wx.FileDialog(
+            self, message="Choose a file",
+            defaultFile="",
+            wildcard=wildcard,
+            style=wx.FD_SAVE | wx.CHANGE_DIR
+            )
+        
+        if dlg.ShowModal() == wx.ID_OK:
+            paths = dlg.GetPaths()
+            self.export_xml(filepath=paths[0])
+            
+    def OnLoadFile(self,event):
+        ''' load model module '''
+        wildcard = "Import Setting File(*.pydat)|*.pydat|" \
+         "All files (*.*)|*.*"
+        
+        dlg = wx.FileDialog(
+            self, message="Choose a file",
+            defaultFile="",
+            wildcard=wildcard,
+            style=wx.FD_OPEN | wx.CHANGE_DIR
+            )
+        
+        if dlg.ShowModal() == wx.ID_OK:
+            paths = dlg.GetPaths()
+            self.loadfile(filepath=paths[0])
+            
+    
+    def loadfile(self,filepath):
+        f2 = open(filepath,"r")
+        self.settings = pickle.load(f2)
+        self.SetValue()
+    
+            
 class ChannelSettings():
     ''' This is the AIgroup for internal voltage excitation'''
     
@@ -317,8 +421,13 @@ class ChannelSettings():
         
         return self.settings
     
-    def SetValue(self):
+    def SetValue(self,settings=None):
+        if settings != None:
+            self.settings = settings
+            
         self.items['InUseChk'].SetValue(self.settings['InUseChk'])
+        if self.settings['InUseChk'] == True:
+            self.EnableGroup(self.items,self.itemkeylist,True)
         self.items['Nameinput'].SetValue(self.settings['Nameinput'])
         self.items['Transducerselect'].SetStringSelection(self.settings['Transducer'])
 
@@ -375,7 +484,10 @@ class ModulePanel(wx.Panel):
         self.SetSizer(box)
         self.Layout()
         
-    def SetValue(self):
+    def SetValue(self,settings=None):
+        if settings != None:
+            self.settings = settings
+            
         for channelname in self.channelname:
             self.items[channelname].SetValue(self.settings[channelname])
     
