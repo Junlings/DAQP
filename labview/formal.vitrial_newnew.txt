@@ -1,2 +1,0 @@
-234,234424,1234
-in.,in.,microstrain

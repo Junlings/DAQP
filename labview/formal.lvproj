@@ -173,6 +173,9 @@
 				<Item Name="DAQmx Fill In Error Info.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/miscellaneous.llb/DAQmx Fill In Error Info.vi"/>
 				<Item Name="DAQmx Flatten Channel String.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/miscellaneous.llb/DAQmx Flatten Channel String.vi"/>
 				<Item Name="DAQmx Perform Bridge Offset Nulling Calibration.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/calibration/calibrationInfo.llb/DAQmx Perform Bridge Offset Nulling Calibration.vi"/>
+				<Item Name="DAQmx Perform Shunt Calibration (Bridge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/calibration/calibrationInfo.llb/DAQmx Perform Shunt Calibration (Bridge).vi"/>
+				<Item Name="DAQmx Perform Shunt Calibration (Strain).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/calibration/calibrationInfo.llb/DAQmx Perform Shunt Calibration (Strain).vi"/>
+				<Item Name="DAQmx Perform Shunt Calibration.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/calibration/calibrationInfo.llb/DAQmx Perform Shunt Calibration.vi"/>
 				<Item Name="DAQmx Read (Analog 1D DBL 1Chan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog 1D DBL 1Chan NSamp).vi"/>
 				<Item Name="DAQmx Read (Analog 1D DBL NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog 1D DBL NChan 1Samp).vi"/>
 				<Item Name="DAQmx Read (Analog 1D Wfm NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog 1D Wfm NChan 1Samp).vi"/>
@@ -433,26 +436,27 @@
 			<Item Name="xmlparser.vi" Type="VI" URL="../xmlparser.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
-			<Item Name="MultiChannel DAQ" Type="EXE">
+			<Item Name="formal3" Type="EXE">
 				<Property Name="App_copyErrors" Type="Bool">true</Property>
-				<Property Name="App_INI_aliasGUID" Type="Str">{8F982212-86AB-4B61-8875-0B317BC83AF4}</Property>
-				<Property Name="App_INI_GUID" Type="Str">{64B11945-6DA5-488D-A70D-5E856C09708A}</Property>
-				<Property Name="Bld_buildCacheID" Type="Str">{2D08324F-4C1A-41D5-85E1-F18796541F36}</Property>
-				<Property Name="Bld_buildSpecName" Type="Str">MultiChannel DAQ</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{55E85BF3-4945-4336-AE0C-EBB3ABE5C35A}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{C0F9F1C9-6859-47AF-9406-72286B8714D9}</Property>
+				<Property Name="App_winsec.description" Type="Str">http://www.Hewlett-Packard.com</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{929C9D96-C4FA-495F-BC2E-93B73206BFDA}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">formal3</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../builds/MultiChannel DAQ/NI_AB_PROJECTNAME</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/formal3</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
-				<Property Name="Bld_previewCacheID" Type="Str">{C449936D-062C-42BC-A059-5F436AC61C57}</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{28D8901F-56BA-4AE5-939A-6A304C720809}</Property>
 				<Property Name="Destination[0].destName" Type="Str">Application.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">../builds/MultiChannel DAQ/NI_AB_PROJECTNAME/Application.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/formal3/Application.exe</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../builds/MultiChannel DAQ/NI_AB_PROJECTNAME/data</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/formal3/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{1BAC416A-9879-4391-AE26-7464A47AFF3D}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{73C403A4-0C4A-412D-9327-F36F49552DC6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/formal.vi</Property>
@@ -460,12 +464,12 @@
 				<Property Name="Source[1].type" Type="Str">VI</Property>
 				<Property Name="SourceCount" Type="Int">2</Property>
 				<Property Name="TgtF_companyName" Type="Str">Hewlett-Packard</Property>
-				<Property Name="TgtF_fileDescription" Type="Str">MultiChannel DAQ</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">formal3</Property>
 				<Property Name="TgtF_fileVersion.major" Type="Int">1</Property>
-				<Property Name="TgtF_internalName" Type="Str">MultiChannel DAQ</Property>
+				<Property Name="TgtF_internalName" Type="Str">formal3</Property>
 				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2013 Hewlett-Packard</Property>
-				<Property Name="TgtF_productName" Type="Str">MultiChannel DAQ</Property>
-				<Property Name="TgtF_targetfileGUID" Type="Str">{445A36FE-DE0D-4028-87CF-924D4EE91FDD}</Property>
+				<Property Name="TgtF_productName" Type="Str">formal3</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{37CA0C3E-DDBA-429A-B353-9BBBC5383F15}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">Application.exe</Property>
 			</Item>
 		</Item>
