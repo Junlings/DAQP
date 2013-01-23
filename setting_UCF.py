@@ -10,6 +10,7 @@ UTM_LOAD_0_200 = {
     'min':0,
     'author':'Jun Xia',
     'description':' UTM machine load signal',
+    'image1':'img/UTM.jpg',
     'prop':
         {
             'max':10,
@@ -30,6 +31,7 @@ UTM_LOAD_0_100 = {
     'min':0,
     'author':'Jun Xia',
     'description':' UTM machine load signal',
+    'image1':'img/UTM.jpg',
     'prop':
         {
             'max':10,
@@ -49,6 +51,7 @@ UTM_LOAD_0_20 = {
     'min':0,
     'author':'Jun Xia',
     'description':' UTM machine load signal',
+    'image1':'img/UTM.jpg',
     'prop':
         {
             'max':10,
@@ -68,6 +71,7 @@ UTM_LOAD_0_10 = {
     'min':0,
     'author':'Jun Xia',
     'description':' UTM machine load signal',
+    'image1':'img/UTM.jpg',
     'prop':
         {
             'max':10,
@@ -88,6 +92,7 @@ UTM_DISP_0_5 = {
     'min':0,
     'author':'Jun Xia',
     'description':' UTM machine disp signal',
+    'image1':'img/UTM.jpg',
     'prop':
         {
             'max':10,
@@ -109,6 +114,7 @@ MTS_LOAD_0_100 = {
     'min':0,
     'author':'Jun Xia',
     'description':' MTS machine load signal',
+    'image1':'img/MTS.jpg',
     'prop':
         {
             'max':10,
@@ -128,6 +134,7 @@ MTS_DISP_0_10 = {
     'min':0,
     'author':'Jun Xia',
     'description':' MTS machine disp signal',
+    'image1':'img/MTS.jpg',
     'prop':
         {
             'max':10,
@@ -148,6 +155,7 @@ STRAIN_120_quarter2 = {
     'min':-3000,
     'author':'Jun Xia',
     'description':' strain gauge signal',
+    'image1':'img/strain.jpg',
     'prop':
         {
             'BridgeType':'Quarter Bridge II',
@@ -157,6 +165,8 @@ STRAIN_120_quarter2 = {
             'lowpassfreq':60,
             'max':0.01,
             'min':-0.01,
+            'factor_a':1000000,
+            'factor_b':0.0,
             'resistance':120,
             
         }
@@ -169,6 +179,7 @@ STRAIN_350_half = {
     'min':-3000,
     'author':'Jun Xia',
     'description':' strain gauge signal',
+    'image1':'img/strain.jpg',
     'prop':
         {
             'BridgeType':'Half Bridge I',
@@ -178,6 +189,8 @@ STRAIN_350_half = {
             'lowpassfreq':60,
             'max':0.01,
             'min':-0.01,
+            'factor_a':1000000,
+            'factor_b':0.0,
             'resistance':350,
             
         }
@@ -191,6 +204,7 @@ EXTENSOMETER_5 = {
     'min':0,
     'author':'Jun Xia',
     'description':'extensometer',
+    'image1':'img/ext.jpg',
     'prop':
         {
             'max':10,
@@ -210,6 +224,7 @@ LVDT_5 = {
     'min':0,
     'author':'Jun Xia',
     'description':'extensometer',
+    'image1':'img/lvdt.jpg',
     'prop':
         {
             'max':10,
